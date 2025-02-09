@@ -19,6 +19,15 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             </div>
 
+             <!-- Role Selection -->
+            <div class="mt-4">
+                <x-label for="role" value="{{ __('Register as') }}" />
+                <select name="role" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                    <option value="traveler">Traveler</option>
+                    <option value="agency">Travel Agency</option>
+                </select>
+            </div>
+
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
