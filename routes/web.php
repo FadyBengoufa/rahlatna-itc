@@ -30,11 +30,12 @@ Route::middleware([
     })->name('dashboard');
 
     // Agency routes
-    Route::middleware('role:agency')->prefix('agency')->group(function () {
+    Route::prefix('agency')->group(function () {
         Route::resource('trips', TripController::class);
     });
 
-    Route::middleware('role:traveler')->prefix('traveler')->group(function () {
+    Route::prefix('traveler')->group(function () {
+        // Route::get('trips', TravelerTripController::class);
         // Route::get('bookings', [BookingController::class, 'index']);
         // Route::post('trips/{trip}/book', [BookingController::class, 'store']);
         // Route::get('bookings/{booking}', [BookingController::class, 'show']);

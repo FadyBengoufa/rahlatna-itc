@@ -12,7 +12,12 @@ class TripController extends Controller
      */
     public function index()
     {
-        //
+        $trips = Trip::query()
+                    ->whereHas('agency', function ($query) {
+                        $query->where('user_id', auth()->user()->id);
+                    })
+                    ->get();
+        return view('agency.index', compact('trips'));
     }
 
     /**
@@ -20,7 +25,7 @@ class TripController extends Controller
      */
     public function create()
     {
-        //
+        return view('agency.trips.create');
     }
 
     /**
@@ -28,7 +33,17 @@ class TripController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'destination' => 'required|string',
+            'price' => 'required|numeric',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+        ]);
+
+        Trip::create($request->all());
+
+        return redirect()->route('trips.index')->with('success', 'Trip created successfully.');
     }
 
     /**

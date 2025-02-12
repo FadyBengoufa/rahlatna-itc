@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->text('description');
+            $table->string('location');
             $table->decimal('price', 10, 2);
             $table->date('start_date');
             $table->date('end_date');
@@ -23,6 +24,8 @@ return new class extends Migration
             $table->string('destination');
             $table->enum('status', ['draft', 'published', 'completed', 'cancelled'])->default('draft');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

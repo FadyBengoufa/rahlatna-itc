@@ -20,6 +20,8 @@ return new class extends Migration
             $table->decimal('total_price', 10, 2);
             $table->text('special_requests')->nullable();
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 
