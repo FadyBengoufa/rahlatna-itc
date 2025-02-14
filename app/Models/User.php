@@ -71,4 +71,9 @@ class User extends Authenticatable
     {
         return $this->role === 'traveler';
     }
+
+    public function bookedTrips()
+    {
+        return $this->belongsToMany(Trip::class, 'bookings')->withTimestamps();
+    }
 }

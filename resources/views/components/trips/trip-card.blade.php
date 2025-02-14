@@ -18,13 +18,23 @@
         </div>
 
         <div class="mt-4 flex justify-between">
-            <span class="px-3 py-1 text-xs font-semibold rounded-full {{ $trip->is_published ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700' }}">
-                {{ $trip->is_published ? 'Published' : 'Unpublished' }}
+            <span class="px-3 py-1 text-xs font-semibold rounded-full {{ $trip->status === 'published' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700' }}">
+                {{ $trip->status === 'published' ? 'Published' : 'Unpublished' }}
             </span>
 
-            <a href="{{ route('trips.show', $trip->id) }}" class="text-indigo-600 text-sm font-medium hover:underline">
-                View Details →
-            </a>
+            @if(Auth::user() && Auth::user()->isTraveler())
+                @if(!auth()->user()->bookedTrips->contains($trip))
+                    <a href="{{ route('traveler.trips.show', $trip) }}" class="text-indigo-600 text-sm font-medium hover:underline">
+                        View Details →
+                    </a>
+                @else
+                    <p class="text-green-600 text-sm font-medium">Trip Booked!</p>
+                @endif
+            @else
+                <a href="{{ route('trips.show', $trip) }}" class="text-indigo-600 text-sm font-medium hover:underline">
+                    View Details →
+                </a>
+            @endif
         </div>
     </div>
 </div>

@@ -21,15 +21,20 @@ class TripSeeder extends Seeder
             for ($i = 1; $i <= 3; $i++) {
                 Trip::create([
                     'user_id' => $agency->id,
-                    'title' => "Trip to " . Str::random(6),
-                    'description' => "Experience a fantastic journey to " . Str::random(8),
-                    'location' => ['Bali', 'Paris', 'New York', 'Tokyo', 'London'][rand(0, 4)],
+                    'title' => [
+                        'Paris Getaway',
+                        'Bali Adventure',
+                        'New York Explorer',
+                        'Tokyo Discovery',
+                        'London Experience',
+                    ][rand(0, 4)],
+                    'destination' => ['Bali', 'Paris', 'New York', 'Tokyo', 'London'][rand(0, 4)],
                     'price' => rand(100, 1000),
+                    'available_seats' => rand(5, 20),
+                    'description' => "Experience a fantastic journey to " . Str::random(8),
                     'start_date' => now()->addDays(rand(1, 30)),
                     'end_date' => now()->addDays(rand(31, 60)),
-                    'available_seats' => rand(5, 20),
-                    'destination' => ['Bali', 'Paris', 'New York', 'Tokyo', 'London'][rand(0, 4)],
-                    'status' => ['draft', 'published', 'completed', 'cancelled'][rand(0, 3)],
+                    'status' => 'published',
                 ]);
             }
         }
