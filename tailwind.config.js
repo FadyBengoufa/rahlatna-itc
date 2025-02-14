@@ -16,6 +16,9 @@ export default {
             fontFamily: {
                 sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                navy: '#003566', 
+              },
         },
     },
 
