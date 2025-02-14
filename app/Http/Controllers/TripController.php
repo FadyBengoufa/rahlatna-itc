@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Trip;
 use Illuminate\Http\Request;
 
@@ -34,16 +35,22 @@ class TripController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'user_id' => 'required|exists:users,id',
+            'title' => 'required|string|max:255',
             'destination' => 'required|string',
             'price' => 'required|numeric',
+            'available_seats' => 'required',
+            'description' => 'required|string',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after:start_date',
         ]);
 
-        Trip::create($request->all());
+        Trip::create(array_merge(
+            $request->all(),
+            ['user_id' => auth()->user()->id]
+        ));
 
-        return redirect()->route('trips.index')->with('success', 'Trip created successfully.');
+        return redirect()->route('trips.create')->with('success', 'Trip created successfully.');
     }
 
     /**
@@ -51,30 +58,18 @@ class TripController extends Controller
      */
     public function show(Trip $trip)
     {
-        //
+        $trip = Trip::findOrFail($trip->id);
+
+        return view('agency.trips.show', compact('trip'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Trip $trip)
+    public function bookedTrips()
     {
-        //
-    }
+        $trips = Trip::with('bookings.traveler')
+            ->where('user_id', auth()->user()->id)
+            ->has('bookings')
+            ->get();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Trip $trip)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Trip $trip)
-    {
-        //
+        return view('agency.bookings', compact('trips'));
     }
 }
