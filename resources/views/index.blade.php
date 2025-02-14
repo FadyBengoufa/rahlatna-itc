@@ -27,7 +27,7 @@
                        <img src="" alt="logo">
                    </div>
                    <nav>
-                       <ul class="nav_links flex space-x-14">
+                       <ul class="nav_links flex space-x-14 capitalize">
                            <li><a href="">about</a></li>
                            <li><a href="">agencies</a></li>
                            <li><a href="">countries</a></li>
@@ -36,9 +36,9 @@
                        </ul>
                    </nav>
    
-                   <div class="">
-                       <a href="" class="py-1.5 px-3 rounded" style="margin-right: 20px; border: white 2px solid">sign in</a>
-                       <a href="" class="bg-[#003566] py-2 px-3 rounded">sign up</a>
+                   <div class="capitalize">
+                       <a href="{{ route('login') }}" class="py-1.5 px-3 rounded" style="margin-right: 20px; border: white 2px solid">login</a>
+                       <a href="{{ route('register') }}" class="bg-[#003566] py-2 px-3 rounded">sign up</a>
                    </div>
                </header>
                <div class="text-white font-montserrat font-bold text-[42px] w-90 ml-30 mt-20 ">

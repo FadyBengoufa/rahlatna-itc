@@ -8,7 +8,30 @@
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
+            <div class="my-4">
+                <x-label for="role" value="{{ __('Register as') }}" class="mb-2 block text-sm font-medium text-gray-700" />
+            
+                <div class="flex justify-between gap-8">
+                    <!-- Traveler Option -->
+                    <div class="flex-1">
+                        <input type="radio" id="traveler" name="role" value="traveler" class="hidden peer/traveler" checked>
+                        <label for="traveler"
+                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg cursor-pointer peer-checked/traveler:bg-[#001E3DD9] peer-checked/traveler:text-white peer-checked/traveler:border-[#001E3DD9] hover:bg-gray-100 w-full justify-center">
+                            Traveler
+                        </label>
+                    </div>
+            
+                    <!-- Agency Option -->
+                    <div class="flex-1">
+                        <input type="radio" id="agency" name="role" value="agency" class="hidden peer/agency">
+                        <label for="agency"
+                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg cursor-pointer peer-checked/agency:bg-[#001E3DD9] peer-checked/agency:text-white peer-checked/agency:border-[#001E3DD9] hover:bg-gray-100 w-full justify-center">
+                            Agency
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
             <div>
                 <x-label for="name" value="{{ __('Name') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
@@ -20,13 +43,17 @@
             </div>
 
              <!-- Role Selection -->
-            <div class="mt-4">
+            {{-- <div class="mt-4">
                 <x-label for="role" value="{{ __('Register as') }}" />
-                <select name="role" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                    <option value="traveler">Traveler</option>
-                    <option value="agency">Travel Agency</option>
-                </select>
-            </div>
+                <div class="flex items-center mt-2">
+                    <input type="radio" id="traveler" name="role" value="traveler" class="text-[#001E3DD9] focus:ring-[#001E3DD9]" checked>
+                    <label for="traveler" class="ml-2 text-sm text-gray-700">Traveler</label>
+                </div>
+                <div class="flex items-center mt-2">
+                    <input type="radio" id="agency" name="role" value="agency" class="text-[#001E3DD9] focus:ring-[#001E3DD9]">
+                    <label for="agency" class="ml-2 text-sm text-gray-700">Travel Agency</label>
+                </div>
+            </div> --}}
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
