@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\TravelerTripController;
 use App\Http\Controllers\TripController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,22 +29,31 @@ Route::middleware([
 
     // Dashboard
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        if (Auth::user()->isAgency()) {
+            return redirect()->route('trips.index');
+        } elseif (Auth::user()->isTraveler()) {
+            return redirect()->route('traveler.trips.index');
+        }
+        // return view('dashboard');
     })->name('dashboard');
 
     // Agency routes
-    Route::middleware('role:agency')->prefix('agency')->group(function () {
-        Route::resource('trips', TripController::class);
+    Route::prefix('agency')
+        ->middleware('isAgency')
+        ->group(function () {
+            Route::get('trips', [TripController::class, 'index'])->name('trips.index');
+            Route::get('trips/create', [TripController::class, 'create'])->name('trips.create');
+            Route::post('trips', [TripController::class, 'store'])->name('trips.store');
+            Route::get('trips/{trip}', [TripController::class, 'show'])->name('trips.show');
+            Route::get('booked-trips', [TripController::class, 'bookedTrips'])->name('trips.bookings');
     });
 
-    Route::middleware('role:traveler')->prefix('traveler')->group(function () {
-        // Route::get('bookings', [BookingController::class, 'index']);
-        // Route::post('trips/{trip}/book', [BookingController::class, 'store']);
-        // Route::get('bookings/{booking}', [BookingController::class, 'show']);
-        // Route::post('bookings/{booking}/cancel', [BookingController::class, 'cancel']);
+    Route::prefix('traveler')
+        ->middleware('isTraveler')
+        ->group(function () {
+            Route::get('trips', [TravelerTripController::class, 'index'])->name('traveler.trips.index');
+            Route::get('trips/{trip}', [TravelerTripController::class, 'show'])->name('traveler.trips.show');
+            Route::post('trips/{trip}/book', [BookingController::class, 'bookTrip'])->name('traveler.trips.book');
+            Route::get('bookings', [BookingController::class, 'index'])->name('traveler.bookings.index');
     });
 });
-
-// Public routes
-Route::get('trips', [TripController::class, 'index']);
-Route::get('trips/{trip}', [TripController::class, 'show']);

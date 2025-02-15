@@ -15,14 +15,16 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
-            $table->text('description');
+            $table->string('destination');
             $table->decimal('price', 10, 2);
+            $table->integer('available_seats');
+            $table->text('description');
             $table->date('start_date');
             $table->date('end_date');
-            $table->integer('available_seats');
-            $table->string('destination');
-            $table->enum('status', ['draft', 'published', 'completed', 'cancelled'])->default('draft');
+            $table->enum('status', ['draft', 'published', 'completed', 'cancelled'])->default('published');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

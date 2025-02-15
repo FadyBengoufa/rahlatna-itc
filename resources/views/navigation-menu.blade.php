@@ -6,16 +6,40 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
+                        <x-application-mark class="block h-12 w-auto" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div>
+                </div> --}}
+                
+                {{-- Agency Links --}}
+                @if(Auth::user() && Auth::user()->isAgency())
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('trips.index') }}" :active="request()->routeIs('trips.index')">
+                            {{ __('Manage Trips') }}
+                        </x-nav-link>
+                        <x-nav-link href="{{ route('trips.bookings') }}" :active="request()->routeIs('trips.bookings')">
+                            {{ __('Manager Bookings') }}
+                        </x-nav-link>
+                    </div>
+                @endif
+
+                {{-- Traveler Links --}}
+                @if(Auth::user() && Auth::user()->isTraveler())
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('traveler.trips.index') }}" :active="request()->routeIs('traveler.trips.index')">
+                            {{ __('Browse Trips') }}
+                        </x-nav-link>
+                        <x-nav-link href="{{ route('traveler.bookings.index') }}" :active="request()->routeIs('traveler.bookings.index')">
+                            {{ __('My Bookings') }}
+                        </x-nav-link>
+                    </div>
+                @endif
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
