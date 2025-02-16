@@ -145,7 +145,7 @@ nav a:hover::after {
                     <li><a href="">agencies</a></li>
                     <li><a href="">countries</a></li>
                     <li><a href="">payments</a></li>
-                    <li><a href="">features</a></li>
+                    <li><a href="{{route('features')}}">features</a></li>
                 </ul>
             </nav>
         
@@ -163,7 +163,7 @@ nav a:hover::after {
             <a href="">agencies</a>
             <a href="">countries</a>
             <a href="">payments</a>
-            <a href="">features</a>
+            <a href="{{route('features')}}">features</a>
         </nav>
                <div class="text-white font-montserrat font-bold text-[42px] max-[470px]:text-[28px] max-[470px]:p-5 max-[650px]:text-[32px] max-w-90 ml-30 mt-20 max-[800px]:mx-auto max-[800px]:text-center">
                    <h1 id="text" class="leading-[55px] fade-in">Travel like never before unique experiances, just for you!</h1>

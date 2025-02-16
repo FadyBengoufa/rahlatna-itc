@@ -57,3 +57,6 @@ Route::middleware([
             Route::get('bookings', [BookingController::class, 'index'])->name('traveler.bookings.index');
     });
 });
+Route::get('/features', function () {
+    return view('features');
+})->name('features');
