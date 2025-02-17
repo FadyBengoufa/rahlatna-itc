@@ -143,7 +143,7 @@ nav a:hover::after {
                 <ul class="nav_links flex space-x-14">
                     <li><a href="">about</a></li>
                     <li><a href="">agencies</a></li>
-                    <li><a href="">countries</a></li>
+                    <li><a href="{{route('countries')}}">countries</a></li>
                     <li><a href="">payments</a></li>
                     <li><a href="{{route('features')}}">features</a></li>
                 </ul>
@@ -161,7 +161,7 @@ nav a:hover::after {
         <nav id="mobile-menu" class="capitalize hidden fixed top-0 left-0 w-full h-[87%] bg-[#283618e0] items-center justify-center space-y-6 text-white text-xl ">
             <a href="">about</a>
             <a href="">agencies</a>
-            <a href="">countries</a>
+            <a href="{{route('countries')}}">countries</a>
             <a href="">payments</a>
             <a href="{{route('features')}}">features</a>
         </nav>
