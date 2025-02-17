@@ -62,12 +62,12 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function isAgency()
+    public function isAgency(): bool
     {
         return $this->role === 'agency';
     }
 
-    public function isTraveler()
+    public function isTraveler(): bool
     {
         return $this->role === 'traveler';
     }

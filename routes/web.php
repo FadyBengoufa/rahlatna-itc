@@ -29,9 +29,11 @@ Route::middleware([
 
     // Dashboard
     Route::get('/dashboard', function () {
-        if (Auth::user()->isAgency()) {
+        /** @var \App\Models\User */
+        $user = Auth::user();
+        if ($user->isAgency()) {
             return redirect()->route('trips.index');
-        } elseif (Auth::user()->isTraveler()) {
+        } elseif ($user->isTraveler()) {
             return redirect()->route('traveler.trips.index');
         }
         // return view('dashboard');
@@ -65,3 +67,15 @@ Route::get('/features', function () {
 Route::get('/countries', function () {
     return view('countries');
 })->name('countries');
+
+Route::get('/cities', function () {
+    return view('countries2');
+})->name('cities');
+
+Route::get('/agencies', function () {
+    return view('agencies');
+})->name('agencies');
+
+Route::get('/payment', function () {
+    return view('payment');
+})->name('payment');

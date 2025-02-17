@@ -70,9 +70,8 @@ nav a:hover::after {
             </div>
             <nav class="max-[1029px]:hidden capitalize">
                 <ul class="nav_links flex space-x-14">
-                    <li><a href="">about</a></li>
-                    <li><a href="">agencies</a></li>
-                    <li><a href="">payments</a></li>
+                    <li><a href="{{route('agencies')}}">agencies</a></li>
+                    <li><a href="{{route('payment')}}">payments</a></li>
                     <a href="{{route('features')}}">features</a>
                     <li><a href="{{ route('home') }}">home</a></li>
                 </ul>
@@ -88,9 +87,8 @@ nav a:hover::after {
         </header>
         <!-- Mobile Menu -->
         <nav id="mobile-menu" class="capitalize hidden fixed top-20 max-[470px]:top-18 left-0 w-full h-[87%] bg-[#283618e0] items-center justify-center space-y-6 text-white text-xl ">
-            <a href="">about</a>
-            <a href="">agencies</a>
-            <a href="">payments</a>
+            <a href="{{route('agencies')}}">agencies</a>
+            <a href="{{route('payment')}}">payments</a>
             <a href="{{route('features')}}">features</a>
             <a href="{{ route('home') }}">home</a>
         </nav>
@@ -113,17 +111,17 @@ nav a:hover::after {
                             </div>
                             <h3>Santorini</h3>
                         </div>
-                        <img src="/images/ae331433926ed4100d7d95653883362a.jpg" 
-                        alt="" class="rounded w-55 aspect-[4/4]">
+                        <a href="{{route('cities')}}"><img src="/images/ae331433926ed4100d7d95653883362a.jpg" 
+                            alt="" class="rounded w-55 aspect-[4/4]"></a>
                         <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Santorini stuns with dramatic cliffs, white-washed charm, and breathtaking sunsets—plus delicious Greek cuisine and rich history to explore.</p>
                         <div class="flex justify-between ">
                             <div class="ratings ">
                                 <span> ★ ★ ★ ★ ★</span> 
                             </div>
                             <div class="flex gap-x-2 h-5">
-                                <img src="/images/fontisto_yacht.png" alt="">
-                                <img src="/images/arcticons_viabus.png" alt="">
-                                <img src="/images/material-symbols_flight-rounded.png" alt="">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
                             </div>
                         </div>
                     </div>
@@ -136,17 +134,17 @@ nav a:hover::after {
                             </div>
                             <h3>Banff National Park</h3>
                         </div>
-                        <img src="/images/161c7b8233ba9e73eeef01563354cdf1.jpg" 
-                        alt="" class="rounded w-55 aspect-[4/4]">
+                        <a href="{{route('cities')}}"><img src="/images/161c7b8233ba9e73eeef01563354cdf1.jpg" 
+                            alt="" class="rounded w-55 aspect-[4/4]"></a>
                         <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Banff is a nature lover’s paradise, boasting crystal-clear lakes, majestic mountains, and rich wildlife—don’t miss Lake Louise and Moraine Lake!</p>
                         <div class="flex justify-between ">
                             <div class="ratings ">
                                 <span> ★ ★ ★ ★ ★</span> 
                             </div>
                             <div class="flex gap-x-2 h-5">
-                                <img src="/images/fontisto_yacht.png" alt="">
-                                <img src="/images/arcticons_viabus.png" alt="">
-                                <img src="/images/material-symbols_flight-rounded.png" alt="">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
                             </div>
                         </div>
                     </div>
@@ -159,17 +157,17 @@ nav a:hover::after {
                             </div>
                             <h3>Rome</h3>
                         </div>
-                        <img src="/images/5932ccd30bcbd2014955840c98761e82.jpg" 
-                        alt="" class="rounded w-55 aspect-[4/4]">
+                       <a href="{{route('cities')}}"> <img src="/images/5932ccd30bcbd2014955840c98761e82.jpg" 
+                        alt="" class="rounded w-55 aspect-[4/4]"></a>
                         <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Rome dazzles with ancient ruins like the Colosseum and Pantheon, plus Vatican City’s iconic treasures</p>
                         <div class="flex justify-between ">
                             <div class="ratings ">
                                 <span> ★ ★ ★ ★ ★</span> 
                             </div>
                             <div class="flex gap-x-2 h-5">
-                                <img src="/images/fontisto_yacht.png" alt="">
-                                <img src="/images/arcticons_viabus.png" alt="">
-                                <img src="/images/material-symbols_flight-rounded.png" alt="">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
                             </div>
                         </div>
                     </div>
@@ -182,17 +180,40 @@ nav a:hover::after {
                             </div>
                             <h3>Dubai</h3>
                         </div>
-                        <img src="/images/a9a4e501137cc94640d34fa0b56c5d20.jpg" 
-                        alt="" class="rounded w-55 aspect-[4/4]">
+                        <a href="{{route('cities')}}"><img src="/images/a9a4e501137cc94640d34fa0b56c5d20.jpg" 
+                            alt="" class="rounded w-55 aspect-[4/4]"></a>
                         <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Dubai stuns with towering skyscrapers, luxury shopping, desert adventures, and the world’s largest indoor aquarium.</p>
                         <div class="flex justify-between ">
                             <div class="ratings ">
                                 <span> ★ ★ ★ ★ ★</span> 
                             </div>
                             <div class="flex gap-x-2 h-5">
-                                <img src="/images/fontisto_yacht.png" alt="">
-                                <img src="/images/arcticons_viabus.png" alt="">
-                                <img src="/images/material-symbols_flight-rounded.png" alt="">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                
+        
+                    <div class="flex flex-col gap-y-10">
+                        <div>
+                            <div class="font-montserrat font-bold text-[28px] leading-[48.76px]">
+                                <h2>Algeria</h2>
+                            </div>
+                            <h3>Algeirs</h3>
+                        </div>
+                        <a href="{{route('cities')}}"><img src="/images/6f2a0f6471f01b68a3661bfca8c55f18d54ce9b4.jpg" 
+                            alt="" class="rounded w-55 aspect-[4/4]"></a>
+                        <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Algeirs shines with stunning architecture, Algerian tiles, and the iconic Mosque guiding the medina.</p>
+                        <div class="flex justify-between ">
+                            <div class="ratings ">
+                                <span> ★ ★ ★ ★ ★</span> 
+                            </div>
+                            <div class="flex gap-x-2 h-5">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
                             </div>
                         </div>
                     </div>
@@ -205,40 +226,17 @@ nav a:hover::after {
                             </div>
                             <h3>Marrakash</h3>
                         </div>
-                        <img src="/images/b8edf7a993b82d9627be24643bcebbb5.jpg" 
-                        alt="" class="rounded w-55 aspect-[4/4]">
+                        <a href="{{route('cities')}}"><img src="/images/b8edf7a993b82d9627be24643bcebbb5.jpg" 
+                            alt="" class="rounded w-55 aspect-[4/4]"></a>
                         <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Marrakech shines with stunning architecture, Moroccan tiles, and the iconic Koutoubia Mosque guiding the medina.</p>
                         <div class="flex justify-between ">
                             <div class="ratings ">
                                 <span> ★ ★ ★ ★ ★</span> 
                             </div>
                             <div class="flex gap-x-2 h-5">
-                                <img src="/images/fontisto_yacht.png" alt="">
-                                <img src="/images/arcticons_viabus.png" alt="">
-                                <img src="/images/material-symbols_flight-rounded.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                
-        
-                    <div class="flex flex-col gap-y-10">
-                        <div>
-                            <div class="font-montserrat font-bold text-[28px] leading-[48.76px]">
-                                <h2>Morroco</h2>
-                            </div>
-                            <h3>Marrakash</h3>
-                        </div>
-                        <img src="/images/b8edf7a993b82d9627be24643bcebbb5.jpg" 
-                        alt="" class="rounded w-55 aspect-[4/4]">
-                        <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Marrakech shines with stunning architecture, Moroccan tiles, and the iconic Koutoubia Mosque guiding the medina.</p>
-                        <div class="flex justify-between ">
-                            <div class="ratings ">
-                                <span> ★ ★ ★ ★ ★</span> 
-                            </div>
-                            <div class="flex gap-x-2 h-5">
-                                <img src="/images/fontisto_yacht.png" alt="">
-                                <img src="/images/arcticons_viabus.png" alt="">
-                                <img src="/images/material-symbols_flight-rounded.png" alt="">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
                             </div>
                         </div>
                     </div>
