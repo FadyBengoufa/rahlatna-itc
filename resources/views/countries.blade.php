@@ -48,6 +48,17 @@ nav a:hover::after {
     pointer-events: auto;
 }
 
+    .star {
+        font-size: 20px;
+        color:#00274d ;
+        cursor: pointer;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .star.active,
+    .star:hover {
+        color: goldenrod; /* Active star color */
+    }
 
         </style>
     </head>
@@ -60,10 +71,9 @@ nav a:hover::after {
             <nav class="max-[1029px]:hidden capitalize">
                 <ul class="nav_links flex space-x-14">
                     <li><a href="{{route('agencies')}}">agencies</a></li>
-                    <li><a href="{{route('countries')}}">countries</a></li>
                     <li><a href="{{route('payment')}}">payments</a></li>
+                    <a href="{{route('features')}}">features</a>
                     <li><a href="{{ route('home') }}">home</a></li>
-
                 </ul>
             </nav>
         
@@ -78,119 +88,162 @@ nav a:hover::after {
         <!-- Mobile Menu -->
         <nav id="mobile-menu" class="capitalize hidden fixed top-20 max-[470px]:top-18 left-0 w-full h-[87%] bg-[#283618e0] items-center justify-center space-y-6 text-white text-xl ">
             <a href="{{route('agencies')}}">agencies</a>
-            <a href="{{route('countries')}}">countries</a>
             <a href="{{route('payment')}}">payments</a>
+            <a href="{{route('features')}}">features</a>
             <a href="{{ route('home') }}">home</a>
         </nav>
 
-{{-- left one --}}
- <div class="flex flex-wrap font-montserrat font-bold text-[14px] leading-[17.07px] mt-5 mb-15 justify-around max-[960px]:mx-5">
-    <div class="w-80  order-1 max-[660px]:order-2">
-        <div class="flex justify-around mt-3">
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl ">Traveler Reviews & Ratings – Make informed choices with real feedback.</p>
-
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
+        <div class="container mx-auto overflow-x-hidden mb-10">
+            <div class="absolute top-[60%] left-0 flex justify-between w-full ">
+                <button><img src="/images/lucide_chevrons-right.png" alt="" id="scrollLeft"></button>
+                <button><img src="/images/lucide.png" alt="" id="scrollRight"></button>
+            </div>
+            <div class="font-montserrat font-bold text-[28px] leading-[48.76px] ml-10 mt-5">
+                <h1>Countries</h1>
+            </div>
+            
+            <div class="flex gap-x-5 mx-10 w-[94%] max-[870px]:w-[91%] max-[690px]:w-[85%] max-[520px]:w-[78%] overflow-x-hidden " id="cardsContainer">
+                {{-- cart --}}
+                    <div class="flex flex-col gap-y-10 "  >
+                        <div>
+                            <div class="font-montserrat font-bold text-[28px] leading-[48.76px]">
+                                <h2>Greece</h2>
+                            </div>
+                            <h3>Santorini</h3>
+                        </div>
+                        <a href="{{route('cities')}}"><img src="/images/ae331433926ed4100d7d95653883362a.jpg" 
+                            alt="" class="rounded w-55 aspect-[4/4]"></a>
+                        <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Santorini stuns with dramatic cliffs, white-washed charm, and breathtaking sunsets—plus delicious Greek cuisine and rich history to explore.</p>
+                        <div class="flex justify-between ">
+                            <div class="ratings ">
+                                <span> ★ ★ ★ ★ ★</span> 
+                            </div>
+                            <div class="flex gap-x-2 h-5">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                
+        
+                    <div class="flex flex-col gap-y-10">
+                        <div>
+                            <div class="font-montserrat font-bold text-[28px] leading-[48.76px]">
+                                <h2>Canada</h2>
+                            </div>
+                            <h3>Banff National Park</h3>
+                        </div>
+                        <a href="{{route('cities')}}"><img src="/images/161c7b8233ba9e73eeef01563354cdf1.jpg" 
+                            alt="" class="rounded w-55 aspect-[4/4]"></a>
+                        <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Banff is a nature lover’s paradise, boasting crystal-clear lakes, majestic mountains, and rich wildlife—don’t miss Lake Louise and Moraine Lake!</p>
+                        <div class="flex justify-between ">
+                            <div class="ratings ">
+                                <span> ★ ★ ★ ★ ★</span> 
+                            </div>
+                            <div class="flex gap-x-2 h-5">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                
+        
+                    <div class="flex flex-col gap-y-10">
+                        <div>
+                            <div class="font-montserrat font-bold text-[28px] leading-[48.76px]">
+                                <h2>Italy</h2>
+                            </div>
+                            <h3>Rome</h3>
+                        </div>
+                       <a href="{{route('cities')}}"> <img src="/images/5932ccd30bcbd2014955840c98761e82.jpg" 
+                        alt="" class="rounded w-55 aspect-[4/4]"></a>
+                        <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Rome dazzles with ancient ruins like the Colosseum and Pantheon, plus Vatican City’s iconic treasures</p>
+                        <div class="flex justify-between ">
+                            <div class="ratings ">
+                                <span> ★ ★ ★ ★ ★</span> 
+                            </div>
+                            <div class="flex gap-x-2 h-5">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                
+        
+                    <div class="flex flex-col gap-y-10">
+                        <div>
+                            <div class="font-montserrat font-bold text-[28px] leading-[48.76px]">
+                                <h2 >U.A.E</h2>
+                            </div>
+                            <h3>Dubai</h3>
+                        </div>
+                        <a href="{{route('cities')}}"><img src="/images/a9a4e501137cc94640d34fa0b56c5d20.jpg" 
+                            alt="" class="rounded w-55 aspect-[4/4]"></a>
+                        <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Dubai stuns with towering skyscrapers, luxury shopping, desert adventures, and the world’s largest indoor aquarium.</p>
+                        <div class="flex justify-between ">
+                            <div class="ratings ">
+                                <span> ★ ★ ★ ★ ★</span> 
+                            </div>
+                            <div class="flex gap-x-2 h-5">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                
+        
+                    <div class="flex flex-col gap-y-10">
+                        <div>
+                            <div class="font-montserrat font-bold text-[28px] leading-[48.76px]">
+                                <h2>Algeria</h2>
+                            </div>
+                            <h3>Algeirs</h3>
+                        </div>
+                        <a href="{{route('cities')}}"><img src="/images/6f2a0f6471f01b68a3661bfca8c55f18d54ce9b4.jpg" 
+                            alt="" class="rounded w-55 aspect-[4/4]"></a>
+                        <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Algeirs shines with stunning architecture, Algerian tiles, and the iconic Mosque guiding the medina.</p>
+                        <div class="flex justify-between ">
+                            <div class="ratings ">
+                                <span> ★ ★ ★ ★ ★</span> 
+                            </div>
+                            <div class="flex gap-x-2 h-5">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                
+        
+                    <div class="flex flex-col gap-y-10">
+                        <div>
+                            <div class="font-montserrat font-bold text-[28px] leading-[48.76px]">
+                                <h2>Morroco</h2>
+                            </div>
+                            <h3>Marrakash</h3>
+                        </div>
+                        <a href="{{route('cities')}}"><img src="/images/b8edf7a993b82d9627be24643bcebbb5.jpg" 
+                            alt="" class="rounded w-55 aspect-[4/4]"></a>
+                        <p class="px-6 py-3 w-55 min-h-50 bg-[#001E3D30] rounded-xl">Marrakech shines with stunning architecture, Moroccan tiles, and the iconic Koutoubia Mosque guiding the medina.</p>
+                        <div class="flex justify-between ">
+                            <div class="ratings ">
+                                <span> ★ ★ ★ ★ ★</span> 
+                            </div>
+                            <div class="flex gap-x-2 h-5">
+                                <button><img src="/images/fontisto_yacht.png" alt=""></button>
+                                <button><img src="/images/arcticons_viabus.png" alt=""></button>
+                                <button><img src="/images/material-symbols_flight-rounded.png" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                
+        
+            </div>
         </div>
-
-        <div class="flex justify-around mt-3">
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
-
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl">Seamless Online Booking – Quick and easy reservations with secure payment options.</p>
-        </div>
-
-        <div class="flex justify-around mt-3">
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl">Customized Travel Packages – Tailor-made trips to suit your budget and interests.</p>
-
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">         
-        </div>
-
-        <div class="flex justify-around mt-3">
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
-
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl">24/7 Customer Support – Assistance anytime, anywhere.</p>
-        </div>
-
-        <div class="flex justify-around mt-3">
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl">Exclusive Deals & Discounts – Special offers for early bookings and group trips.</p>
-
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
-        </div>
-
-        <div class="flex justify-around mt-3">
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl"> Local & Expert Guides – Authentic experiences with knowledgeable guides.</p>
-        </div>
-
-        <div class="flex justify-around mt-3">
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl">Real-Time Trip Updates – Instant notifications on itinerary changes or travel alerts</p>
-
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
-        </div>
-    </div>
-
-
-
-{{-- middle one --}}
-    <div class="flex flex-col items-center justify-center order-2 max-[660px]:order-1 max-[660px]:mb-10 ">
-        <div class="flex h-30 mt-20 max-[660px]:mt-0 ">
-            <img src="/images/Group 34.png" alt="" class="mr-20 w-30 max-[660px]:w-30 max-[960px]:w-20 max-[400px]:w-20">
-            <img src="/images/mynaui_message.png" alt="" class="w-30 max-[660px]:w-30 ml-20 max-[960px]:w-20 max-[400px]:w-20 max-[960px]:ml-10">
-        </div>
-        <img src="/images/Group 33.png" alt="" class="w-40 max-[660px]:w-40 h-40 ml-10 -mt-10 max-[960px]:w-30 max-[960px]:h-30 max-[400px]:w-30">
-        <div class="flex -mt-10 max-[660px]:-mt-10 -z-10 ml-20 max-[960px]:ml-15 max-[960px]:-mt-5 max-[400px]:-mt-5">
-            <img src="/images/Ellipse 35.png" alt="" class="w-30 max-[660px]:w-30 max-[960px]:w-20 max-[400px]:w-20">
-            <img src="/images/Ellipse 34.png" alt="" class="w-40 max-[660px]:w-40 max-[960px]:w-30 max-[400px]:w-20">
-
-        </div>
-    </div>
-
-
-
-{{-- right one --}}
-<div class="w-80 ml-10 order-3 max-[400px]:ml-0">
-        <div class="flex flex-row-reverse justify-around mt-3 ">
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl">Advanced Booking System – Manage bookings effortlessly with a user-friendly dashboard</p>
-
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
-        </div>
-
-        <div class="flex flex-row-reverse justify-around mt-3">
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
-
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl">Automated Itinerary Builder – Generate and customize trip plans in minutes.</p>
-        </div>
-
-        <div class="flex flex-row-reverse justify-around mt-3">
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl">Multi-Currency & Payment Integration – Accept payments globally with ease.</p>
-
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">         
-        </div>
-
-        <div class="flex flex-row-reverse justify-around mt-3">
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
-
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl">Marketing & Promotion Tools – Boost sales with targeted promotions and SEO-friendly content</p>
-        </div>
-
-        <div class="flex flex-row-reverse justify-around mt-3">
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl">Customer Relationship Management (CRM) – Track client preferences and improve service.</p>
-
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
-        </div>
-
-        <div class="flex flex-row-reverse justify-around mt-3">
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
-
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl"> Multi-User Access – Collaborate with your team for smooth operations.</p>
-        </div>
-
-        <div class="flex flex-row-reverse justify-around mt-3">
-            <p class="max-w-55 px-2 py-3 bg-[#001e3d42] rounded-xl">Loyalty & Referral Programs – Reward returning customers and attract new ones.</p>
-
-            <img src="/images/pajamas_issue-type-feature.png" alt="" class="w-8 !h-8 mt-5">
-        </div>
-    </div>
- </div>
 
  <script>
 const menuBtn = document.getElementById("menu-btn");
@@ -214,6 +267,60 @@ menuBtn.addEventListener("click", () => {
         mobileMenu.classList.add("hidden");
     }
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+        const ratings = document.querySelectorAll(".ratings");
+
+        ratings.forEach(rating => {
+            rating.innerHTML = 
+            Array(5).fill(0).map((_, index) => 
+            `<span class="star" data-index="${index + 1}">★</span>`).join(""); 
+
+            const starsElements = rating.querySelectorAll(".star");
+
+            starsElements.forEach(star => {
+                star.addEventListener("click", function () {
+                    const index = parseInt(this.getAttribute("data-index"));
+                    starsElements.forEach((s, i) => {
+                        s.classList.toggle("active", i < index);
+                    });
+                });
+
+                star.addEventListener("mouseover", function () {
+                    const index = parseInt(this.getAttribute("data-index"));
+                    starsElements.forEach((s, i) => {
+                        s.classList.toggle("active", i < index);
+                    });
+                });
+
+                star.addEventListener("mouseleave", function () {
+                    const activeStars = rating.querySelectorAll(".star.active").length;
+                    starsElements.forEach((s, i) => {
+                        s.classList.toggle("active", i < activeStars);
+                    });
+                });
+            });
+        });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const scrollContainer = document.getElementById("cardsContainer");
+        const scrollLeftBtn = document.getElementById("scrollLeft");
+        const scrollRightBtn = document.getElementById("scrollRight");
+
+        const scrollAmount = 240; 
+        scrollLeftBtn.addEventListener("click", function () {
+            scrollContainer.scrollLeft -= scrollAmount;
+        });
+
+        scrollRightBtn.addEventListener("click", function () {
+            scrollContainer.scrollLeft += scrollAmount;
+        });
+    });
  </script>
+
 </body>
 </html>

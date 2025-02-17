@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::middleware([
     'auth:sanctum',
@@ -59,6 +59,23 @@ Route::middleware([
             Route::get('bookings', [BookingController::class, 'index'])->name('traveler.bookings.index');
     });
 });
+
 Route::get('/features', function () {
     return view('features');
 })->name('features');
+
+Route::get('/countries', function () {
+    return view('countries');
+})->name('countries');
+
+Route::get('/cities', function () {
+    return view('countries2');
+})->name('cities');
+
+Route::get('/agencies', function () {
+    return view('agencies');
+})->name('agencies');
+
+Route::get('/payment', function () {
+    return view('payment');
+})->name('payment');

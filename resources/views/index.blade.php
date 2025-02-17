@@ -141,10 +141,9 @@ nav a:hover::after {
             </div>
             <nav class="max-[1029px]:hidden capitalize">
                 <ul class="nav_links flex space-x-14">
-                    <li><a href="">about</a></li>
-                    <li><a href="">agencies</a></li>
-                    <li><a href="">countries</a></li>
-                    <li><a href="">payments</a></li>
+                    <li><a href="{{route('agencies')}}">agencies</a></li>
+                    <li><a href="{{route('countries')}}">countries</a></li>
+                    <li><a href="{{route('payment')}}">payments</a></li>
                     <li><a href="{{route('features')}}">features</a></li>
                 </ul>
             </nav>
@@ -159,10 +158,9 @@ nav a:hover::after {
         </header>
         <!-- Mobile Menu -->
         <nav id="mobile-menu" class="capitalize hidden fixed top-0 left-0 w-full h-[87%] bg-[#283618e0] items-center justify-center space-y-6 text-white text-xl ">
-            <a href="">about</a>
-            <a href="">agencies</a>
-            <a href="">countries</a>
-            <a href="">payments</a>
+            <a href="{{route('agencies')}}">agencies</a>
+            <a href="{{route('countries')}}">countries</a>
+            <a href="{{route('payment')}}">payments</a>
             <a href="{{route('features')}}">features</a>
         </nav>
                <div class="text-white font-montserrat font-bold text-[42px] max-[470px]:text-[28px] max-[470px]:p-5 max-[650px]:text-[32px] max-w-90 ml-30 mt-20 max-[800px]:mx-auto max-[800px]:text-center">
@@ -252,17 +250,17 @@ nav a:hover::after {
             <div class="flex flex-wrap justify-center gap-x-5 p-8">
                 <!-- Card 1 -->
                 <div class=" bg-[#28361881] rounded-2xl w-60 h-60 p-6 flex items-center justify-center m-5 card">
-                    <img src="/images/image 14.png" alt="CIB" class=" object-contain w-50 h-50 ">
+                    <a href="https://bitakati.dz/fr/"><img src="/images/image 14.png" alt="CIB" class=" object-contain w-50 h-50 "></a>
                 </div>
             
                 <!-- Card 2 -->
                 <div class=" bg-[#28361881] rounded-2xl w-60 h-60 p-6 flex items-center justify-center m-5 card">
-                    <img src="/images/AlgeriePoste.svg 2.png" alt="Algerie Poste" class=" object-contain w-40 h-40">
+                    <a href="https://www.poste.dz/"><img src="/images/AlgeriePoste.svg 2.png" alt="Algerie Poste" class=" object-contain w-40 h-40"></a>
                 </div>
             
                 <!-- Card 3 -->
                 <div class=" bg-[#28361881] rounded-2xl w-60 h-60 p-6 flex items-center justify-center m-5 card">
-                    <img src="/images/Frame 184.png" alt="Haye Travel" class=" object-contain w-50 h-50">
+                    <a href="https://www.haystravel.co.uk/"><img src="/images/Frame 184.png" alt="Haye Travel" class=" object-contain w-50 h-50"></a>
                 </div>
             </div>  
         </div>
